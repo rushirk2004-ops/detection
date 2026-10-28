@@ -56,22 +56,8 @@ def render_farmer_ui():
         )
         target_type = "Leaf" if ("Leaf" in target_choice or "पान" in target_choice) else "Fruit"
 
-        # AI Model Architecture Card
-        model_label = "🤖 एआय मॉडेल / AI Model" if is_mr else "🤖 AI Model Architecture"
-        st.markdown(f"""
-        <div class="sidebar-card" style="margin-top: 10px;">
-            <div style="font-size: 0.85rem; font-weight: 700; color: #a7f3d0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">
-                {model_label}
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        model_name = st.selectbox(
-            "AI Model Architecture Selection",
-            ["EfficientNet-B3 (96.26%)", "ResNet-50 (90.95%)"],
-            index=0,
-            label_visibility="collapsed"
-        )
-        clean_model_name = "EfficientNet-B3" if "EfficientNet" in model_name else "ResNet-50"
+        # Automatic High-Performance AI Model Selection
+        clean_model_name = settings.get("inference", {}).get("default_model", "EfficientNet-B3")
 
         # Data Privacy Card
         st.markdown(f"""
