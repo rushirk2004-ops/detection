@@ -30,7 +30,8 @@ def render_farmer_auth_portal(default_mode: str = "signin", is_mr: bool = False)
         """, unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
 
-        auth_choice = st.radio(
+        # High-contrast tabs for instant switching between Sign In and Sign Up
+        auth_mode = st.radio(
             "Select Farmer Portal Action",
             [
                 f"🔑 {t('nav_sign_in', is_mr)}",
@@ -43,10 +44,10 @@ def render_farmer_auth_portal(default_mode: str = "signin", is_mr: bool = False)
         )
         st.markdown("<br>", unsafe_allow_html=True)
 
-        if "Sign In" in auth_choice or "लॉगिन" in auth_choice:
-            render_farmer_login_form(is_mr=is_mr)
-        else:
+        if "Sign Up" in auth_mode or "नोंदणी" in auth_mode:
             render_farmer_signup_form(is_mr=is_mr)
+        else:
+            render_farmer_login_form(is_mr=is_mr)
 
     render_agri_footer(is_mr=is_mr)
 
@@ -65,7 +66,7 @@ def render_farmer_login_form(is_mr: bool = False):
         show_pwd = st.checkbox("👁️ " + ("पासवर्ड दाखवा" if is_mr else "Show Password"), key="f_login_show_pwd")
         password = st.text_input(
             t('password', is_mr),
-            type="text" if show_pwd else "password",
+            type="default" if show_pwd else "password",
             placeholder="••••••••",
             key="f_login_pass"
         )
@@ -140,7 +141,7 @@ def render_farmer_signup_form(is_mr: bool = False):
 
         st.markdown("---")
         show_reg_pwd = st.checkbox("👁️ " + ("पासवर्ड दाखवा" if is_mr else "Show Passwords"), key="f_reg_show_pwd")
-        p_type = "text" if show_reg_pwd else "password"
+        p_type = "default" if show_reg_pwd else "password"
         col_p1, col_p2 = st.columns(2)
         with col_p1:
             password = st.text_input(f"{t('password', is_mr)} *", type=p_type, placeholder="Min 6 characters", key="reg_p1")
@@ -165,7 +166,7 @@ def render_farmer_signup_form(is_mr: bool = False):
             if ok:
                 st.success(f"🎉 {'नोंदणी यशस्वी!' if is_mr else 'Registration Successful!'} " + 
                            (f"तुमचा शेतकरी आयडी: **{f_id}**." if is_mr else f"Your Farmer ID is: **{f_id}**."))
-                st.info("👉 " + ("आता वर 'शेतकरी लॉगिन' निवडून आपल्या खात्यात प्रवेश करा." if is_mr else "Please switch to 'Farmer Sign In' above to log into your new account."))
+                st.info("👉 " + ("आता वर 'शेतकरी लॉगिन' पर्याय निवडून आपल्या खात्यात प्रवेश करा." if is_mr else "Please switch to 'Farmer Sign In' above to log into your new account."))
             else:
                 st.error(f"❌ {msg}")
 

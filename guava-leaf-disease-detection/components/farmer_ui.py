@@ -9,7 +9,7 @@ from services.authentication import is_farmer_session_valid
 from components.farmer_auth_ui import render_farmer_auth_portal
 from components.farmer_dashboard import render_farmer_dashboard
 
-def render_farmer_ui():
+def render_farmer_ui(default_mode: str = "signin"):
     """Renders the appropriate farmer view based on authentication session state."""
     # Read interface language
     lang = st.session_state.get("global_app_lang", "मराठी (Marathi)")
@@ -23,5 +23,4 @@ def render_farmer_ui():
     if is_farmer_session_valid(st.session_state.farmer_session):
         render_farmer_dashboard(st.session_state.farmer_session, is_mr=is_mr)
     else:
-        auth_mode = st.session_state.get("farmer_auth_initial_tab", "signin")
-        render_farmer_auth_portal(default_mode=auth_mode, is_mr=is_mr)
+        render_farmer_auth_portal(default_mode=default_mode, is_mr=is_mr)

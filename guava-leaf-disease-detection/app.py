@@ -104,7 +104,8 @@ def main():
             ]
         else:
             portal_options = [
-                f"🌿 {t('nav_farmer_portal', is_mr)} (लॉगिन / नोंदणी)" if is_mr else f"🌿 {t('nav_farmer_portal', is_mr)} (Sign In / Register)",
+                f"🔑 {t('nav_sign_in', is_mr)}",
+                f"📝 {t('nav_sign_up', is_mr)}",
                 f"🛡️ {t('nav_admin_portal', is_mr)}"
             ]
 
@@ -125,8 +126,10 @@ def main():
     # Portal Router
     if "Admin" in portal_choice or "प्रशासकीय" in portal_choice:
         render_admin_ui(default_tab="login")
+    elif "Sign Up" in portal_choice or "नोंदणी" in portal_choice:
+        render_farmer_ui(default_mode="signup")
     else:
-        render_farmer_ui()
+        render_farmer_ui(default_mode="signin")
 
 if __name__ == "__main__":
     main()
