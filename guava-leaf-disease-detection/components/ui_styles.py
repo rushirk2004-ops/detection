@@ -1,7 +1,13 @@
 """
-UI Styling and Design System Component: Guava Agri-AI System
-Provides rich agricultural green, emerald, lime, and golden-yellow palette,
-glassmorphism card styles, modern typography, responsive layout rules,
+UI Styling and Design System Component: Guava Agri-AI Multi-Farmer Platform
+Provides the requested agricultural color tokens:
+- Forest green: #123D2B
+- Emerald green: #21A366
+- Lime green: #D8F36A
+- Golden yellow: #FFC857
+- Mint background: #E8F7EE
+- Dark slate: #1C2430
+With glassmorphism cards, modern typography, responsive layout rules,
 and reusable UI widgets (hero banner, metric cards, disclaimers, footer).
 """
 import streamlit as st
@@ -16,85 +22,84 @@ def inject_custom_css():
 
         /* Color Tokens & Global Variables */
         :root {
-            --primary-emerald: #10b981;
-            --primary-green: #059669;
-            --dark-forest: #022c22;
-            --deep-slate: #0b1512;
-            --lime-accent: #84cc16;
-            --golden-yellow: #f59e0b;
-            --card-glass: rgba(15, 28, 24, 0.78);
-            --card-border: rgba(16, 185, 129, 0.22);
-            --card-hover-border: rgba(132, 204, 22, 0.55);
-            --text-light: #f0fdf4;
-            --text-muted: #94a3b8;
+            --forest-green: #123D2B;
+            --emerald-green: #21A366;
+            --lime-green: #D8F36A;
+            --golden-yellow: #FFC857;
+            --mint-bg: #E8F7EE;
+            --dark-slate: #1C2430;
+            --card-glass: rgba(18, 61, 43, 0.75);
+            --card-border: rgba(33, 163, 102, 0.35);
+            --text-light: #F0FDF4;
+            --text-muted: #94A3B8;
         }
 
-        /* Full App Background: Lush Botanical Gradient with Radial Glow */
+        /* Full App Background */
         .stApp {
-            background: radial-gradient(circle at 10% 20%, rgba(5, 150, 105, 0.12) 0%, transparent 40%),
-                        radial-gradient(circle at 90% 80%, rgba(132, 204, 22, 0.08) 0%, transparent 40%),
-                        linear-gradient(145deg, #021a13 0%, #062b1e 45%, #031e16 100%) !important;
+            background: radial-gradient(circle at 10% 20%, rgba(33, 163, 102, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(216, 243, 106, 0.1) 0%, transparent 40%),
+                        linear-gradient(145deg, #0D281C 0%, #123D2B 45%, #1C2430 100%) !important;
             background-attachment: fixed !important;
             font-family: 'Plus Jakarta Sans', 'Inter', 'Mukta', sans-serif !important;
-            color: #f1f5f9 !important;
+            color: #F1F5F9 !important;
         }
 
         /* Sidebar Styling */
         section[data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #031b14 0%, #06251c 60%, #02140e 100%) !important;
-            border-right: 1px solid rgba(16, 185, 129, 0.2) !important;
-            box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4) !important;
+            background: linear-gradient(180deg, #0A2217 0%, #123D2B 60%, #1C2430 100%) !important;
+            border-right: 1px solid rgba(33, 163, 102, 0.3) !important;
+            box-shadow: 4px 0 24px rgba(0, 0, 0, 0.45) !important;
         }
 
         section[data-testid="stSidebar"] .stMarkdown h1,
         section[data-testid="stSidebar"] .stMarkdown h2,
         section[data-testid="stSidebar"] .stMarkdown h3 {
-            color: #d1fae5 !important;
+            color: #D8F36A !important;
             font-family: 'Mukta', 'Plus Jakarta Sans', sans-serif !important;
         }
 
         /* Sidebar Cards */
         .sidebar-card {
-            background: rgba(6, 43, 30, 0.55);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(16, 185, 129, 0.25);
+            background: rgba(18, 61, 43, 0.65);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(33, 163, 102, 0.35);
             border-radius: 14px;
             padding: 14px 16px;
             margin-bottom: 14px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
             transition: all 0.25s ease;
         }
         .sidebar-card:hover {
-            border-color: rgba(132, 204, 22, 0.5);
-            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.2);
+            border-color: #D8F36A;
+            box-shadow: 0 6px 20px rgba(33, 163, 102, 0.3);
         }
 
         /* Hero Banner Component */
         .hero-banner {
             position: relative;
-            background: linear-gradient(135deg, rgba(6, 78, 59, 0.92) 0%, rgba(4, 47, 46, 0.95) 50%, rgba(2, 44, 34, 0.98) 100%);
-            border: 1px solid rgba(16, 185, 129, 0.35);
+            background: linear-gradient(135deg, rgba(18, 61, 43, 0.95) 0%, rgba(33, 163, 102, 0.85) 60%, rgba(28, 36, 48, 0.95) 100%);
+            border: 1px solid rgba(216, 243, 106, 0.35);
             border-radius: 20px;
             padding: 28px 32px;
             margin-bottom: 24px;
-            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow: 0 14px 38px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(16px);
             overflow: hidden;
         }
         .hero-banner::after {
             content: '';
             position: absolute;
-            top: -50%;
+            top: -40%;
             right: -10%;
-            width: 320px;
-            height: 320px;
-            background: radial-gradient(circle, rgba(132, 204, 22, 0.18) 0%, transparent 70%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(216, 243, 106, 0.2) 0%, transparent 70%);
             pointer-events: none;
         }
         .hero-title {
             font-size: 2.3rem;
             font-weight: 800;
-            background: linear-gradient(90deg, #ecfdf5 0%, #a7f3d0 40%, #fef08a 100%);
+            background: linear-gradient(90deg, #FFFFFF 0%, #D8F36A 50%, #FFC857 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 8px;
@@ -103,7 +108,7 @@ def inject_custom_css():
         }
         .hero-subtitle {
             font-size: 1.12rem;
-            color: #cbd5e1;
+            color: #E2E8F0;
             font-weight: 500;
             margin-bottom: 18px;
             line-height: 1.5;
@@ -118,9 +123,9 @@ def inject_custom_css():
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(16, 185, 129, 0.16);
-            border: 1px solid rgba(16, 185, 129, 0.4);
-            color: #d1fae5;
+            background: rgba(18, 61, 43, 0.6);
+            border: 1px solid #21A366;
+            color: #D8F36A;
             padding: 5px 14px;
             border-radius: 30px;
             font-size: 0.88rem;
@@ -130,20 +135,18 @@ def inject_custom_css():
 
         /* Metric Cards */
         .metric-card {
-            background: rgba(15, 32, 26, 0.82);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(16, 185, 129, 0.28);
+            background: rgba(28, 36, 48, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(33, 163, 102, 0.35);
             border-radius: 16px;
             padding: 18px 20px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
             transition: all 0.25s ease-in-out;
-            position: relative;
-            overflow: hidden;
         }
         .metric-card:hover {
             transform: translateY(-3px);
-            border-color: rgba(132, 204, 22, 0.6);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
+            border-color: #D8F36A;
+            box-shadow: 0 10px 25px rgba(33, 163, 102, 0.3);
         }
         .metric-card-icon {
             font-size: 1.8rem;
@@ -151,7 +154,7 @@ def inject_custom_css():
             display: inline-block;
         }
         .metric-card-title {
-            color: #94a3b8;
+            color: #94A3B8;
             font-size: 0.88rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -161,31 +164,31 @@ def inject_custom_css():
         .metric-card-value {
             font-size: 1.85rem;
             font-weight: 800;
-            color: #f8fafc;
+            color: #F8FAFC;
             line-height: 1.2;
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
         .metric-card-subtitle {
             font-size: 0.82rem;
-            color: #10b981;
+            color: #21A366;
             margin-top: 4px;
             font-weight: 500;
         }
 
         /* Glassmorphism Section Cards */
         .glass-card {
-            background: rgba(13, 30, 24, 0.82);
+            background: rgba(28, 36, 48, 0.82);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(16, 185, 129, 0.22);
+            border: 1px solid rgba(33, 163, 102, 0.28);
             border-radius: 18px;
             padding: 24px;
             margin-bottom: 22px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 26px rgba(0, 0, 0, 0.35);
         }
         .glass-card-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #a7f3d0;
+            color: #D8F36A;
             margin-bottom: 14px;
             display: flex;
             align-items: center;
@@ -193,61 +196,66 @@ def inject_custom_css():
             font-family: 'Mukta', 'Plus Jakarta Sans', sans-serif;
         }
 
-        /* Large Drag and Drop Upload Area Customization */
-        div[data-testid="stFileUploader"] {
-            background: transparent !important;
-        }
+        /* Upload Area */
         div[data-testid="stFileUploaderDropzone"] {
-            border: 2px dashed #10b981 !important;
+            border: 2px dashed #21A366 !important;
             border-radius: 18px !important;
-            background: rgba(6, 78, 59, 0.22) !important;
+            background: rgba(18, 61, 43, 0.35) !important;
             padding: 24px 18px !important;
             transition: all 0.3s ease !important;
         }
         div[data-testid="stFileUploaderDropzone"]:hover {
-            border-color: #84cc16 !important;
-            background: rgba(6, 78, 59, 0.42) !important;
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.35) !important;
-            transform: scale(1.005);
+            border-color: #D8F36A !important;
+            background: rgba(18, 61, 43, 0.55) !important;
+            box-shadow: 0 0 25px rgba(33, 163, 102, 0.4) !important;
         }
 
-        /* Prominent Animated-Looking Green Buttons */
+        /* Prominent Buttons */
         div.stButton > button {
-            background: linear-gradient(135deg, #059669 0%, #10b981 50%, #16a34a 100%) !important;
-            color: #ffffff !important;
+            background: linear-gradient(135deg, #123D2B 0%, #21A366 60%, #16804F 100%) !important;
+            color: #FFFFFF !important;
             font-weight: 700 !important;
-            font-size: 1.08rem !important;
-            border: 1px solid rgba(255, 255, 255, 0.25) !important;
+            font-size: 1.05rem !important;
+            border: 1px solid rgba(216, 243, 106, 0.35) !important;
             border-radius: 14px !important;
-            padding: 12px 28px !important;
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-            letter-spacing: 0.3px !important;
+            padding: 12px 26px !important;
+            box-shadow: 0 6px 20px rgba(33, 163, 102, 0.4) !important;
+            transition: all 0.25s ease !important;
         }
         div.stButton > button:hover {
             transform: translateY(-2px) !important;
-            box-shadow: 0 10px 28px rgba(16, 185, 129, 0.6) !important;
-            border-color: #a3e635 !important;
-            color: #ffffff !important;
+            box-shadow: 0 10px 28px rgba(33, 163, 102, 0.6) !important;
+            border-color: #D8F36A !important;
+            color: #D8F36A !important;
         }
-        div.stButton > button:active {
-            transform: translateY(0px) !important;
+
+        /* High-contrast tabs */
+        div[data-testid="stTabs"] button {
+            font-size: 1.05rem !important;
+            font-weight: 700 !important;
+            color: #94A3B8 !important;
+            padding: 10px 18px !important;
+            font-family: 'Mukta', 'Plus Jakarta Sans', sans-serif !important;
+        }
+        div[data-testid="stTabs"] button[aria-selected="true"] {
+            color: #D8F36A !important;
+            border-bottom: 3px solid #21A366 !important;
         }
 
         /* Result Highlighting Cards */
         .result-card-healthy {
-            background: linear-gradient(135deg, rgba(6, 78, 59, 0.85) 0%, rgba(4, 47, 46, 0.9) 100%);
-            border: 2px solid #10b981;
-            border-left: 10px solid #10b981;
+            background: linear-gradient(135deg, rgba(18, 61, 43, 0.9) 0%, rgba(33, 163, 102, 0.85) 100%);
+            border: 2px solid #21A366;
+            border-left: 10px solid #D8F36A;
             border-radius: 16px;
             padding: 22px 26px;
             margin-bottom: 20px;
-            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 8px 30px rgba(33, 163, 102, 0.35);
         }
         .result-card-disease {
-            background: linear-gradient(135deg, rgba(69, 26, 3, 0.88) 0%, rgba(30, 15, 10, 0.95) 100%);
-            border: 2px solid #ea580c;
-            border-left: 10px solid #ef4444;
+            background: linear-gradient(135deg, rgba(40, 20, 15, 0.92) 0%, rgba(28, 36, 48, 0.95) 100%);
+            border: 2px solid #EA580C;
+            border-left: 10px solid #EF4444;
             border-radius: 16px;
             padding: 22px 26px;
             margin-bottom: 20px;
@@ -256,28 +264,27 @@ def inject_custom_css():
         .result-title {
             font-size: 1.65rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #FFFFFF;
             font-family: 'Mukta', 'Plus Jakarta Sans', sans-serif;
             margin-bottom: 8px;
         }
         .result-meta-chip {
             display: inline-flex;
             align-items: center;
-            background: rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 8px;
             padding: 4px 10px;
             font-size: 0.88rem;
             font-weight: 600;
-            color: #e2e8f0;
+            color: #E2E8F0;
             margin-right: 8px;
             margin-top: 6px;
         }
 
-        /* Treatment Box Item */
         .treatment-item {
-            background: rgba(15, 23, 42, 0.75);
-            border: 1px solid rgba(51, 65, 85, 0.6);
+            background: rgba(28, 36, 48, 0.8);
+            border: 1px solid rgba(51, 65, 85, 0.7);
             border-radius: 12px;
             padding: 16px 20px;
             margin-bottom: 12px;
@@ -285,54 +292,40 @@ def inject_custom_css():
             transition: all 0.2s ease;
         }
         .treatment-item:hover {
-            border-color: rgba(16, 185, 129, 0.4);
+            border-color: #21A366;
             transform: translateX(3px);
         }
 
-        /* Disclaimer Card */
         .disclaimer-box {
-            background: rgba(30, 41, 59, 0.7);
+            background: rgba(28, 36, 48, 0.75);
             border: 1px solid #475569;
-            border-left: 5px solid #f59e0b;
+            border-left: 5px solid #FFC857;
             border-radius: 12px;
             padding: 16px 20px;
             margin-top: 24px;
             margin-bottom: 20px;
-            color: #cbd5e1;
+            color: #CBD5E1;
             font-size: 0.92rem;
             line-height: 1.6;
         }
 
-        /* Clean Modern Footer */
         .modern-footer {
             text-align: center;
             padding: 30px 20px;
             margin-top: 40px;
-            border-top: 1px solid rgba(16, 185, 129, 0.2);
-            color: #94a3b8;
+            border-top: 1px solid rgba(33, 163, 102, 0.25);
+            color: #94A3B8;
             font-size: 0.9rem;
-            background: rgba(2, 26, 19, 0.6);
+            background: rgba(18, 61, 43, 0.55);
             border-radius: 16px;
         }
-        .footer-highlight {
-            color: #10b981;
-            font-weight: 700;
-        }
 
-        /* Responsive Mobile Layout Adjustments */
         @media (max-width: 768px) {
             .hero-banner {
                 padding: 18px 20px !important;
-                border-radius: 14px !important;
             }
             .hero-title {
                 font-size: 1.55rem !important;
-            }
-            .hero-subtitle {
-                font-size: 0.95rem !important;
-            }
-            .metric-card {
-                margin-bottom: 12px !important;
             }
             div[data-testid="column"] {
                 width: 100% !important;
@@ -342,18 +335,29 @@ def inject_custom_css():
     </style>
     """, unsafe_allow_html=True)
 
-def render_hero(is_mr: bool = True):
+def render_hero(farmer_name: Optional[str] = None, is_mr: bool = True):
     """Renders the visually rich hero section."""
-    title = "🌿 पेरू ॲग्री-एआय रोग निदान प्रणाली" if is_mr else "🌿 Guava Agri-AI Smart Diagnostic Studio"
-    subtitle = (
-        "खोल न्यूरल नेटवर्क (Deep Learning), स्पष्टीकरणात्मक एआय (Grad-CAM), "
-        "आणि अचूक कृषी उपायांसह पेरूच्या बागांचे स्मार्ट संरक्षण."
-        if is_mr else
-        "Enterprise-grade Foliage & Fruit Pathology Diagnostic Suite powered by ResNet-50 & EfficientNet-B3 with Grad-CAM Explainable AI."
-    )
+    if farmer_name:
+        greeting = f"🌱 नमस्कार, {farmer_name}!" if is_mr else f"🌱 Welcome back, {farmer_name}!"
+        title = f"{greeting} — पेरू रोग निदान प्रणाली" if is_mr else f"{greeting} — Guava Diagnostic Studio"
+        subtitle = (
+            "आपल्या वैयक्तिक शेतकरी खात्यात आपले स्वागत आहे. पेरू पिकाचे फोटो तपासा, "
+            "इतिहास पहा आणि अचूक कृषी उपचार मिळवा."
+            if is_mr else
+            "Access your private diagnostic history, submit leaf scans for AI analysis, and receive certified agricultural remedies."
+        )
+    else:
+        title = "🌿 पेरू ॲग्री-एआय रोग निदान प्रणाली" if is_mr else "🌿 Guava Agri-AI Smart Diagnostic Studio"
+        subtitle = (
+            "खोल न्यूरल नेटवर्क (Deep Learning), स्पष्टीकरणात्मक एआय (Grad-CAM), "
+            "आणि अचूक कृषी उपायांसह पेरूच्या बागांचे स्मार्ट संरक्षण."
+            if is_mr else
+            "Enterprise-grade Foliage & Fruit Pathology Diagnostic Suite powered by ResNet-50 & EfficientNet-B3 with Grad-CAM Explainable AI."
+        )
+
     badge1 = "🎯 96.26% AI Accuracy" if not is_mr else "🎯 ९६.२६% अचूकता"
     badge2 = "🔬 Grad-CAM Heatmap" if not is_mr else "🔬 उष्णता नकाशा (XAI)"
-    badge3 = "⚡ Sub-50ms Latency" if not is_mr else "⚡ अतिजलद विश्लेषण"
+    badge3 = "👥 Multi-Farmer Secure" if not is_mr else "👥 बहु-शेतकरी सुरक्षित खाते"
     badge4 = "🌐 Bilingual (मराठी / English)" if not is_mr else "🌐 द्विभाषिक सल्ला"
 
     st.markdown(f"""
@@ -373,23 +377,24 @@ def render_metric_cards(
     total_analyses: int,
     healthy_count: int,
     diseased_count: int,
-    accuracy_pct: float = 96.26,
+    last_date: Optional[str] = None,
     is_mr: bool = True
 ):
     """Renders 4 glowing agricultural metric cards."""
     col1, col2, col3, col4 = st.columns(4)
 
-    t1 = "एकूण तपासण्या" if is_mr else "Total Diagnoses"
-    s1 = "स्थानिक नोंदी" if is_mr else "Verified Samples"
+    t1 = "माझ्या एकूण तपासण्या" if is_mr else "Total Diagnoses"
+    s1 = "वैयक्तिक नोंदी" if is_mr else "Personal Scans"
 
     t2 = "निरोगी नमुने" if is_mr else "Healthy Leaves"
-    s2 = "चांगली पाने" if is_mr else "Disease-Free"
+    s2 = "रोगमुक्त झाडे" if is_mr else "Disease-Free"
 
     t3 = "रोग निदान प्रकरणे" if is_mr else "Pathologies Found"
-    s3 = "सक्रिय उपचार आवश्यक" if is_mr else "Action Required"
+    s3 = "उपचार आवश्यक" if is_mr else "Treatments Required"
 
-    t4 = "मॉडेल अचूकता" if is_mr else "Model Accuracy"
-    s4 = "EfficientNet-B3 चाचणी" if is_mr else "Test Benchmark"
+    t4 = "शेवटची तपासणी" if is_mr else "Last Diagnosis"
+    disp_date = last_date.split()[0] if last_date else ("--" if not is_mr else "--")
+    s4 = "नोंद तारीख" if is_mr else "Date of Activity"
 
     with col1:
         st.markdown(f"""
@@ -406,8 +411,8 @@ def render_metric_cards(
         <div class="metric-card">
             <span class="metric-card-icon">🌿</span>
             <div class="metric-card-title">{t2}</div>
-            <div class="metric-card-value" style="color: #4ade80;">{healthy_count}</div>
-            <div class="metric-card-subtitle" style="color: #86efac;">{s2}</div>
+            <div class="metric-card-value" style="color: #D8F36A;">{healthy_count}</div>
+            <div class="metric-card-subtitle" style="color: #21A366;">{s2}</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -416,18 +421,18 @@ def render_metric_cards(
         <div class="metric-card">
             <span class="metric-card-icon">⚠️</span>
             <div class="metric-card-title">{t3}</div>
-            <div class="metric-card-value" style="color: #fb923c;">{diseased_count}</div>
-            <div class="metric-card-subtitle" style="color: #fdba74;">{s3}</div>
+            <div class="metric-card-value" style="color: #FFC857;">{diseased_count}</div>
+            <div class="metric-card-subtitle" style="color: #FFA500;">{s3}</div>
         </div>
         """, unsafe_allow_html=True)
 
     with col4:
         st.markdown(f"""
         <div class="metric-card">
-            <span class="metric-card-icon">🎯</span>
+            <span class="metric-card-icon">📅</span>
             <div class="metric-card-title">{t4}</div>
-            <div class="metric-card-value" style="color: #38bdf8;">{accuracy_pct:.1f}%</div>
-            <div class="metric-card-subtitle" style="color: #7dd3fc;">{s4}</div>
+            <div class="metric-card-value" style="font-size: 1.35rem; color: #38BDF8;">{disp_date}</div>
+            <div class="metric-card-subtitle" style="color: #94A3B8;">{s4}</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -445,14 +450,14 @@ def render_expert_disclaimer(is_mr: bool = True):
     )
     st.markdown(f"""
     <div class="disclaimer-box">
-        <strong style="color: #fbbf24; font-size: 1.02rem;">{disc_title}</strong><br>
+        <strong style="color: #FFC857; font-size: 1.02rem;">{disc_title}</strong><br>
         <span style="display: block; margin-top: 6px;">{disc_text}</span>
     </div>
     """, unsafe_allow_html=True)
 
 def render_agri_footer(is_mr: bool = True):
     """Renders the clean agricultural AI footer."""
-    line1 = "पेरू ॲग्री-एआय स्मार्ट रोग निदान प्रणाली" if is_mr else "Guava Agri-AI Smart Diagnostic System"
+    line1 = "पेरू ॲग्री-एआय बहु-शेतकरी स्मार्ट रोग निदान व्यासपीठ" if is_mr else "Guava Agri-AI Multi-Farmer Smart Diagnostic Platform"
     line2 = (
         "अंतिम वर्ष अभियांत्रिकी शैक्षणिक प्रकल्प (२०२६–२०२७) | विकसित: Deep Learning, PyTorch आणि Streamlit"
         if is_mr else
@@ -460,10 +465,10 @@ def render_agri_footer(is_mr: bool = True):
     )
     st.markdown(f"""
     <div class="modern-footer">
-        <div style="font-weight: 700; color: #ecfdf5; font-size: 1.05rem; margin-bottom: 4px;">🌿 {line1}</div>
-        <div style="font-size: 0.88rem; color: #94a3b8;">{line2}</div>
-        <div style="font-size: 0.82rem; color: #64748b; margin-top: 6px;">
-            © 2026–2027 Guava Disease Detection System | Strictly In-Memory Data Privacy Enabled
+        <div style="font-weight: 700; color: #D8F36A; font-size: 1.05rem; margin-bottom: 4px;">🌿 {line1}</div>
+        <div style="font-size: 0.88rem; color: #94A3B8;">{line2}</div>
+        <div style="font-size: 0.82rem; color: #64748B; margin-top: 6px;">
+            © 2026–2027 Guava Disease Detection System | Multi-User Secure SQLite Authentication
         </div>
     </div>
     """, unsafe_allow_html=True)
