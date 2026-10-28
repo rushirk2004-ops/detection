@@ -1,0 +1,47 @@
+classes:
+  fruit:
+  - Anthracnose
+  - Fruit Fly
+  - Healthy Fruit
+  - Scab
+  - Stylar End Rot
+  leaf:
+  - Canker
+  - Dot
+  - Healthy
+  - Mummification
+  - Rust
+inference:
+  default_model: ResNet-50
+  img_size:
+  - 224
+  - 224
+  mean:
+  - 0.485
+  - 0.456
+  - 0.406
+  std:
+  - 0.229
+  - 0.224
+  - 0.225
+  supported_models:
+  - name: ResNet-50
+    target_layer: layer4.-1
+    weights_path: models/saved_models/resnet50_best.pt
+  - name: EfficientNet-B3
+    target_layer: features.-1
+    weights_path: models/saved_models/efficientnet_best.pt
+  uncertainty_threshold: 0.6
+security:
+  admin_username: admin
+  password_salt: guava_agri_secure_salt_2026
+  session_timeout_minutes: 60
+storage:
+  allow_image_retention_default: false
+  database_path: storage/guava_system.db
+system:
+  academic_year: 2026-2027
+  app_name: Guava Leaf & Fruit Disease Detection System
+  default_language: English
+  environment: production
+  version: 2.0.0

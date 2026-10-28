@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pytest_cache/
+.pytest_cache/
+
+# Environments & virtualenvs
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# Datasets (large image files, ~11GB)
+data/
+guava-leaf-disease-detection/data/
+
+# SQLite databases & runtime storage
+*.db
+guava-leaf-disease-detection/storage/*.db
+
+# Office / Temporary files
+~$*
+*.tmp
+
+# IDE & OS files
+.vscode/
+.idea/
+*.swp
+*.DS_Store
+Thumbs.db
